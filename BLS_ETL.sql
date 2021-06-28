@@ -1,5 +1,6 @@
 
 
+
 Select x.* into BLS_16_20 from (
 	select * from dbo.all_data_M_2016
 	union all
@@ -198,8 +199,23 @@ Select x.* into BLS_16_20 from (
 	update dbo.BLS_16_20
 	set [occ code] = replace([occ code],'-','') 
 
+	--Add job descriptions missing from 2018 list
+	select a.* 
+	into #tempTable
+	from [soc_2010_definitions] a left join [soc_2018_definitions] b on a.[SOC Code] = b.[SOC Code]
+	where b.[SOC Code] is null
 
+	select * from #tempTable
 
+	insert into soc_2018_definitions ([SOC Code], [SOC Title], [SOC Definition])
+	select [SOC Code], [SOC Title], [SOC Definition]
+	from #tempTable
+
+	select * from soc_2018_definitions where [SOC Code] in (152051, 152099, 152091)
+
+	--Account for "Data Scientists and Mathematical Science Occupations, All Other"
+	insert into soc_2018_definitions ([SOC Code], [SOC Title], [SOC Definition])
+	values (152098, 'Data Scientists and Mathematical Science Occupations, All Other', 'Develop and implement a set of techniques or analytics applications to transform raw data into meaningful information using data-oriented programming languages and visualization software. Apply data mining, data modeling, natural language processing, and machine learning to extract and analyze information from large structured and unstructured datasets. Visualize, interpret, and report data findings. May create dynamic data reports. Apply standardized mathematical formulas, principles, and methodology to technological problems in engineering and physical sciences in relation to specific industrial and research objectives, processes, equipment, and products.')
 
 	select y.* into BLS_16_20_Extract from (
 
