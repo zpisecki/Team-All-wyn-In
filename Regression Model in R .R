@@ -119,29 +119,6 @@ ggplot(data = Data_Reg_Title, mapping = aes(x = year_exp , y = Avg_Rate, color =
   theme_light()
   
 
-################   Logistic regression  #############
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Modeling Non-Linear Relationships - with simple regression line 
 ggplot(data = Data_Reg_R, mapping = aes(x = year_exp , y = Avg_Rate  )) + 
@@ -149,9 +126,6 @@ ggplot(data = Data_Reg_R, mapping = aes(x = year_exp , y = Avg_Rate  )) +
   geom_smooth(method = "lm", se = FALSE, color = "orange") + 
   labs(title = "Years of Experinces vs. Houry Rate", y = "Hourly Rate", x = "Years of Experinces") + 
   theme_light()
-
-
-
 
 
 # compare models
