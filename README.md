@@ -21,7 +21,7 @@ calc_scrape070421.ipynb is the total program that was written to pull the CALC d
 
 CALC_NLP.ipynb contains the SQL database creation and the NLP model Python code used for CALC dataset. 
 
-tableau visualization.twb it is a Tableau file where we illustrate and visualize and created some of pur plots
+tableau visualization.twb It is a Tableau file where we illustrate and visualize and created some of pur plots
 
 Tableau Connection.R  We created this file to connecte our regression model in R to Tableau for further analysis
 
