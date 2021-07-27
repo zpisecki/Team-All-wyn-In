@@ -6,3 +6,5 @@ BLS.ACCDB access file provides the data augmentation code for adding Education a
 BLS_Models.R file contains the R code for developing the linear regression, Regression Tree using recursive binary splitting and Random Forest machine learning models.
 
 CALC_predictive_modles.ipynb is a jupyter notebook file containing all of the code that performs linear regression, random forest, and XGBoost algorithms on the CALC dataset.
+
+project_NLP.ipynb contains the NLP model used against the BLS dataset within Python.
