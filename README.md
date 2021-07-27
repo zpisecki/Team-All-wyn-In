@@ -17,4 +17,6 @@ All_CALC_NEW.csv contains the csv file with the total CALC data after document a
 
 calc_mapping.ipynb contains the code for determining the regions for the CALC data that match with the NCS regions, as well as plotting both datasets on a US map and for the distribution images within the report.
 
-calc_scrape070421.ipynb is the total program that was written to pull the CALC data and scrape the job descriptions and locations from the GSA contract documents
+calc_scrape070421.ipynb is the total program that was written to pull the CALC data and scrape the job descriptions and locations from the GSA contract documents 
+
+CALC_NLP.ipynb contains the SQL database creation and the NLP model Python code used for CALC dataset. 
