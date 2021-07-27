@@ -20,3 +20,9 @@ calc_mapping.ipynb contains the code for determining the regions for the CALC da
 calc_scrape070421.ipynb is the total program that was written to pull the CALC data and scrape the job descriptions and locations from the GSA contract documents 
 
 CALC_NLP.ipynb contains the SQL database creation and the NLP model Python code used for CALC dataset. 
+
+tableau visualization.twb it is a Tableau file where we illustrate and visualize and created some of pur plots
+
+Tableau Connection.R  We created this file to connecte our regression model in R to Tableau for further analysis
+
+Regression Model .R  Here we have our coding related to liner and nonlinear regression, ANOVA analysis and other comparison analysis in R
