@@ -8,6 +8,7 @@ namespace AllwynInPWA.Shared
 {
     public class Job
     {
+        public int JobID { get; set; }
         public string JobTitle { get; set; }
         public string JobDesc { get; set; }
         public string EduLev { get; set; }

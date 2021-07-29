@@ -26,6 +26,7 @@ namespace AllwynInPWA.Server
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+            services.AddScoped<IJobRepository, JobRepository>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
