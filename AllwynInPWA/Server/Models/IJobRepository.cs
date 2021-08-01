@@ -11,6 +11,7 @@ namespace AllwynInPWA.Server.Models
         Task<IEnumerable<Job>> Search(string title, string description);
         Task<IEnumerable<Job>> GetJobs();
         Task<Job> GetJob(int jobId);
+        Task<Job> GetJobByTitle(string jobTit);
         Task<Job> AddJob(Job job);
         Task<Job> UpdateJob(Job job);
         Task DeleteJob(int jobId);

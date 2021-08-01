@@ -41,6 +41,12 @@ namespace AllwynInPWA.Server.Models
                 .FirstOrDefaultAsync(j => j.JobID == jobId);
         }
 
+        public async Task<Job> GetJobByTitle(string jobTit)
+        {
+            return await appDbContext.Jobs
+                .FirstOrDefaultAsync(j => j.JobTitle == jobTit);
+        }
+
         public async Task<IEnumerable<Job>> GetJobs()
         {
             return await appDbContext.Jobs
