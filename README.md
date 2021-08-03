@@ -11,6 +11,8 @@ The Federal Acquisition Regulation (FAR) dictates how the government purchases g
 
 [BLS_Models.R](https://github.com/zpisecki/Team-All-wyn-In/blob/c7098bf16ac65472b3e0ac461509d741c6fbb3bf/BLS_MODELS.R) file contains the R code for developing the linear regression, Regression Tree using recursive binary splitting and Random Forest machine learning models.
 
+[BLS_DC_Area_Comps.ipynb](https://github.com/zpisecki/Team-All-wyn-In/blob/main/BLS_DC_Area_Comps.ipynb) file is a jupyter notebook containing the python code for K-means clustering analysis of metropolitan areas by IT job salaries. This shows which US metropolitan areas are most simliar to Washington, DC in terms of IT job salaries. 
+
 [CALC_predictive_models.ipynb](https://github.com/zpisecki/Team-All-wyn-In/blob/c7098bf16ac65472b3e0ac461509d741c6fbb3bf/CALC_predictive_models.ipynb) is a jupyter notebook file containing all of the code that performs linear regression, random forest, and XGBoost algorithms on the CALC dataset.
 
 [project_NLP.ipynb](https://github.com/zpisecki/Team-All-wyn-In/blob/c7098bf16ac65472b3e0ac461509d741c6fbb3bf/project_NLP.ipynb) contains the NLP model used against the BLS dataset within Python.
