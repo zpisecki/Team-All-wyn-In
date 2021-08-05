@@ -23,7 +23,7 @@ The Federal Acquisition Regulation (FAR) dictates how the government purchases g
 
 [calc_scrape070421.ipynb](https://github.com/zpisecki/Team-All-wyn-In/blob/c7098bf16ac65472b3e0ac461509d741c6fbb3bf/calc_scrape070421.ipynb) is the total program that was written to pull the CALC data and scrape the job descriptions and locations from the GSA contract documents 
 
-[CALC_NLP.ipynb](https://github.com/zpisecki/Team-All-wyn-In/blob/c7098bf16ac65472b3e0ac461509d741c6fbb3bf/CALC_NLP.ipynb) contains the SQL database creation and the NLP model Python code used for CALC dataset 
+[CALC_NLP.ipynb](https://github.com/zpisecki/Team-All-wyn-In/blob/d9e4506e6f5065975eb0cd080ff46eb835786b58/CALC_NLP.ipynb) contains the SQL database creation and the NLP model Python code used for CALC dataset 
 
 [future_year.ipynb](https://github.com/zpisecki/Team-All-wyn-In/blob/4eacebef18248c0f46ec97be7043a4a163ac69a1/future_year.ipynb) is the code for projecting linear regression model’s first year prediction result into second and third year 
 
