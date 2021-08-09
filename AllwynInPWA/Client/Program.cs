@@ -1,3 +1,4 @@
+using AllwynInPWA.Client.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,8 +19,11 @@ namespace AllwynInPWA.Client
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDc5MzI2QDMxMzkyZTMyMmUzMFMzOFhTWVBPMFJCMkpyTVRMbHIvOTJmZTU1MFZ2YXNxcmZTNi9UMEl5Ykk9");
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
-
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddHttpClient<IJobService, JobService>(client =>
+            {
+                client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+            });
+            //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSyncfusionBlazor();
             await builder.Build().RunAsync();
         }

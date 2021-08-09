@@ -3,50 +3,64 @@
 @using Syncfusion.Blazor.Grids
 
 
-<SfGrid DataSource="@Jobs">
+<SfGrid DataSource="@Jobs" Toolbar="@toolbarItems" AllowPaging="true" AllowSorting="true">
+    <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog"></GridEditSettings>
+    <GridPageSettings PageSize="20" PageSizes="@pagerDropdown" PageCount="3"></GridPageSettings>
     <GridColumns>
         <GridColumn Field=@nameof(Job.JobTitle) HeaderText="Job Title"></GridColumn>
         <GridColumn Field=@nameof(Job.JobDesc) HeaderText="Job Description"></GridColumn>
-        <GridColumn Field=@nameof(Job.EduLev) HeaderText="Education"></GridColumn>
+        <GridColumn Field=@nameof(Job.EduLev) HeaderText="Education" EditType="EditType.DropDownEdit"></GridColumn>
         <GridColumn Field=@nameof(Job.YearsExp) HeaderText="Years of Experience"></GridColumn>
     </GridColumns>
 </SfGrid>
 
 @code{
+    public string[] toolbarItems { get; set; } = new string[] { "Add", "Edit", "Delete", "Update", "Cancel" };
+
+    public string[] pagerDropdown { get; set; } = new string[] { "All", "5", "10", "20", "30" };
+
+    //public IEditorSettings eduLevEditParams = new DropDownEditCellParams
+    //{
+    //    Params = new DropDownListModel<object,object>() { ShowClearButton = true }
+    //};
+
     public List<Job> Jobs { get; set; }
 
-    protected override void OnInitialized()
-    {
-        Jobs = LoadData();
-    }
-    private List<Job> LoadData()
-    {
-        Job j1 = new Job
-        {
-            JobID = 1,
-            JobTitle = "Senior Data Scientist",
-            JobDesc = "Data Scientist will have necessary statistical modelling, mathematical, big data analytics and predictive modelling skills to build the required algorithms necessary to ask right questions and build objective visualizations and findings from it. Data Scientist will have knowledge of integrating multiple systems and datasets to provide new insights. Examples of required skillset: â€¢ Prior experience working as a data architect and managing information schema for large organizations â€¢ Experience with big data analytic tools such as Hadoop, Hive, MapReduce, SPLUNK, Elastic Search â€¢ Understanding and good working knowledge of SQL and NoSQL â€¢ Experience in machine learning, statistical modelling, and predictive analysis â€¢ Extensive experience with a statistical programming language",
-            EduLev = "Bachelor",
-            YearsExp = 7
-        };
+    [Inject]
+    public IJobService JobService { get; set; }
 
-        Job j2 = new Job
-        {
-            JobID = 2,
-            JobTitle = "Senior Security Analyst",
-            JobDesc = "Analyzes security measures for more than one IT functional area (e.g., data, systems, network and/or Web) across the enterprise. Develops, implements, communicates and provides training of security assessments, policies and procedures Tracks, monitors, and enforces security policies, reviews security violation reports and investigates possible security exceptions, and updates, maintains and documents security controls. Prepares reports on security matters to develop security risk analysis scenarios and response procedures. Evaluates and recommends products and/or procedures to enhance productivity and effectiveness.",
-            EduLev = "Bachelor",
-            YearsExp = 7
-        };
-
-        Job j3 = new Job
-        {
-            JobID = 3,
-            JobTitle = "Software Developer III",
-            JobDesc = "Develop, modify, or update applications used by business units or infrastructure units. Lead, or play lead technical role in development teams efforts to determine unit needs and business processes that are automated by the application.Participate in or review all of the steps in the software development life cycle to create and modify the software.",
-            EduLev = "Bachelor",
-            YearsExp = 10
-        };
-        return new List<Job> { j1, j2, j3 };
+    protected override async Task OnInitializedAsync()
+    {
+        Jobs = (await JobService.GetJobs()).ToList();
     }
+    //private List<Job> LoadData()
+    //{
+    //    Job j1 = new Job
+    //    {
+    //        JobID = 1,
+    //        JobTitle = "Senior Data Scientist",
+    //        JobDesc = "Data Scientist will have necessary statistical modelling, mathematical, big data analytics and predictive modelling skills to build the required algorithms necessary to ask right questions and build objective visualizations and findings from it. Data Scientist will have knowledge of integrating multiple systems and datasets to provide new insights. Examples of required skillset: â€¢ Prior experience working as a data architect and managing information schema for large organizations â€¢ Experience with big data analytic tools such as Hadoop, Hive, MapReduce, SPLUNK, Elastic Search â€¢ Understanding and good working knowledge of SQL and NoSQL â€¢ Experience in machine learning, statistical modelling, and predictive analysis â€¢ Extensive experience with a statistical programming language",
+    //        EduLev = "Bachelor",
+    //        YearsExp = 7
+    //    };
+
+    //    Job j2 = new Job
+    //    {
+    //        JobID = 2,
+    //        JobTitle = "Senior Security Analyst",
+    //        JobDesc = "Analyzes security measures for more than one IT functional area (e.g., data, systems, network and/or Web) across the enterprise. Develops, implements, communicates and provides training of security assessments, policies and procedures Tracks, monitors, and enforces security policies, reviews security violation reports and investigates possible security exceptions, and updates, maintains and documents security controls. Prepares reports on security matters to develop security risk analysis scenarios and response procedures. Evaluates and recommends products and/or procedures to enhance productivity and effectiveness.",
+    //        EduLev = "Bachelor",
+    //        YearsExp = 7
+    //    };
+
+    //    Job j3 = new Job
+    //    {
+    //        JobID = 3,
+    //        JobTitle = "Software Developer III",
+    //        JobDesc = "Develop, modify, or update applications used by business units or infrastructure units. Lead, or play lead technical role in development teams efforts to determine unit needs and business processes that are automated by the application.Participate in or review all of the steps in the software development life cycle to create and modify the software.",
+    //        EduLev = "Bachelor",
+    //        YearsExp = 10
+    //    };
+    //    return new List<Job> { j1, j2, j3 };
+    //}
 }
